@@ -1,0 +1,22 @@
+Este documento contiene todos los scripts necesarios para la creacion de la base de datos:
+
+create table usuarios(
+	id serial,
+	nombre varchar(50),
+	password varchar(200),
+	primary key(id)
+)
+
+create table productos(
+	id serial,
+	descripcion varchar(100),
+	primary key(id)
+)
+
+create table compras(
+	usuario integer,
+	producto integer,
+	primary key(usuario,producto),
+	foreign key(usuario) references usuarios(id),
+	foreign key(producto) references productos(id)
+)
